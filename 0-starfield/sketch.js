@@ -1,13 +1,10 @@
 let stars = [];
-let num = 100;
+let num = 400;
 
 function setup() {
-  createCanvas(600, 400);
+  createCanvas(600, 600);
   for (let i = 0; i < num; i++){
-    let x = random(-width/2,width/2);
-    let y = random(-height/2,height/2);
-    let z = random(width);
-    star = new Star(x, y, z);
+    star = new Star();
     stars.push(star)
   }
 }
@@ -16,7 +13,7 @@ function draw() {
   background(0);
   translate(width/2, height/2)
   for (let star of stars) {
-    star.move();
+    star.update();
     star.show();
   }
 }
