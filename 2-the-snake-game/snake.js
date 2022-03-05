@@ -1,26 +1,45 @@
 class Snake {
     constructor(){
-        this.x = 0;
-        this.y = 0;
-        this.xs = 1;
-        this.ys = 0;
+        this.position = createVector(0,0)
+        this.speed = createVector(1,0)
+        this.total = 0;
+        this.tail = [];
     }
 
     update() {
-        this.x += this.xs * scl;
-        this.y += this.ys * scl;
+        if (this.total === this.tail.length) {
+            for (var i = 0; i < this.tail.length-1; i++) {
+                this.tail[i] = this.tail[i+1];
+            }
+        }
+        this.tail[this.total-1] = createVector(this.position.x, this.position.y);
 
-        this.x = constrain(this.x, 0, width-scl);
-        this.y = constrain(this.y, 0, height-scl);
+        this.position.x += this.speed.x * scl;
+        this.position.y += this.speed.y * scl;
+
+        this.position.x = constrain(this.position.x, 0, width-scl);
+        this.position.y = constrain(this.position.y, 0, height-scl);
+    }
+
+    eat(x,y) {
+        let d = dist(this.position.x, this.position.y, x, y);
+        if (d < 1){
+            this.total++;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     show() {
         fill(255);
-        rect(this.x, this.y, scl, scl);
+        for (var i = 0; i < this.tail.length; i++) {
+            rect(this.tail[i].x, this.tail[i].y, scl, scl);
+        }
+        rect(this.position.x, this.position.y, scl, scl);
     }
 
     dir(x, y) {
-        this.xs = x;
-        this.ys = y;
+        this.speed = createVector(x,y);
     }
 }

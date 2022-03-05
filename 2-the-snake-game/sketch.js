@@ -6,6 +6,7 @@ function setup() {
   createCanvas(600, 600);
   s = new Snake();
   f = new Food();
+  f.update();
   frameRate(10);
 }
 
@@ -14,8 +15,10 @@ function draw() {
   s.update();
   s.show();
 
-  //f.update();
   f.show();
+  if (s.eat(f.position.x, f.position.y)) {
+    f.update();
+  }
 }
 
 function keyPressed() {
