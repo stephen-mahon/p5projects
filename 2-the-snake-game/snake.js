@@ -21,6 +21,20 @@ class Snake {
         this.position.y = constrain(this.position.y, 0, height-scl);
     }
 
+    death () {
+        for (let i = 0; i < this.tail.length; i++) {
+            let pos = this.tail[i];
+            let d = dist(this.position.x, this.position.y, pos.x, pos.y)
+            if (d < 1){
+                this.position = createVector(0,0)
+                this.speed = createVector(1,0)
+                this.total = 0;
+                this.tail = [];
+                this.total = 0;
+                this.tail = [];
+            }
+        }
+    }
     eat(x,y) {
         let d = dist(this.position.x, this.position.y, x, y);
         if (d < 1){

@@ -12,6 +12,7 @@ function setup() {
 
 function draw() {
   background(51);
+  s.death();
   s.update();
   s.show();
 
@@ -19,6 +20,8 @@ function draw() {
   if (s.eat(f.position.x, f.position.y)) {
     f.update();
   }
+
+ 
 }
 
 function keyPressed() {
