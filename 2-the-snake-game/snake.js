@@ -35,6 +35,12 @@ class Snake {
             }
         }
     }
+    
+    mousePressed() {
+        this.tail++;
+    }
+
+
     eat(x,y) {
         let d = dist(this.position.x, this.position.y, x, y);
         if (d < 1){

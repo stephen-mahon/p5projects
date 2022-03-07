@@ -13,6 +13,7 @@ function setup() {
 function draw() {
   background(51);
   s.death();
+  //s.mousePressed();
   s.update();
   s.show();
 
