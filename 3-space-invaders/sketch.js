@@ -17,6 +17,7 @@ function setup() {
 function draw() {
   background(51);
   ship.show();
+  //ship.move();
   for (var i = 0; i < aliens.length; i++) {
     aliens[i].show();
   }
@@ -29,7 +30,7 @@ function draw() {
 }
 // uncaught error with push to array
 function keyPressed() {
-  if (keyCode = ' ') {
+  if (keyCode === UP_ARROW) {
     var bullet = new Bullet(width/2, height/2);
     bullets.push(bullet);
   }
