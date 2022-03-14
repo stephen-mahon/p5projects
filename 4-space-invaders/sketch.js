@@ -1,12 +1,12 @@
 let ship;
 let aliens = [];
-let totalAliens = 8;
 var bullets = [];
+let totalAliens = 8;
+
 
 function setup() {
   createCanvas(600, 400);
   ship = new Ship();
-  bullets = new Bullet(width/2, height/2);
   for (var i = 0; i < totalAliens; i++) {
     let alienSpacer = i*width/totalAliens+width/(2*totalAliens)
     aliens[i] = new Alien(alienSpacer, 60);
@@ -31,7 +31,7 @@ function draw() {
 // uncaught error with push to array
 function keyPressed() {
   if (keyCode === UP_ARROW) {
-    var bullet = new Bullet(width/2, height/2);
+    var bullet = new Bullet(ship.x, height);
     bullets.push(bullet);
   }
   if (keyCode === RIGHT_ARROW) {
