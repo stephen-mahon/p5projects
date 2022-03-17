@@ -3,7 +3,7 @@ let sun;
 function setup() {
   createCanvas(400, 400);
   sun = new Planet(25, 0, 0);
-  sun.spawnPlanets(5, 1);
+  sun.spawnPlanets(10, 1);
 }
 
 function draw() {
