@@ -10,7 +10,7 @@ function setup() {
   cols = floor(width/w);
   rows = floor(height/w);
   // debug
-  frameRate(5);
+  //frameRate(5);
 
   for(let j = 0; j < rows; j++) {
     for (let i = 0; i < cols; i++) {
