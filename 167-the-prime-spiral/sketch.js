@@ -19,16 +19,11 @@ function setup() {
   py = y;
   background(0);
 while(step <= totalSteps) {
-  //textSize(stepSize);
-  //textAlign(CENTER, CENTER);
-  //text(step, x, y);
   fill(255);
   stroke(255);
   if (isPrime(step)) {
     point(x, y, stepSize*0.5);
   }
-  //strokeWeight(.5)
-  //line(x, y, px, py);
   px = x;
   py = y;
 
